@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Todos</title>
+</head>
+<body>
+	<h1>Todos</h1>
+
+{% for t in todos %}
+	<hr/>
+	<h2>{{ t.todo }}</h2>
+	<h4>{{ t.description }}</h4>
+{% endfor %}
+</body>
+</html>
