@@ -30,7 +30,11 @@
 							{% for t in todos %}
 							<tr class="fw-normal">
 							<th>
+								{% if t.important == True %}
 								<i class="fa-solid fa-star text-warning"></i>
+								{% else %}
+								<i class="fa-solid fa-star"></i>
+								{% endif %}
 								<span class="ms-2">{{ t.todo }}</span>
 							</th>
 							<td class="align-middle">
@@ -48,9 +52,11 @@
 						</tbody>
 					</table>
 				</div>
+				{% if user.is_authenticated %}
 				<div class="card-footer text-end p-3">
-					<button class="btn btn-primary">Add Task</button>
+					<a class="btn btn-primary" href="create_todo/">Add Task</a>
 				</div>
+				{% endif %}
 			</div>
 		</div>
 	</div>
