@@ -1,7 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404
 from .models import Todo
+
+def DeleteTodo(request, pk):
+    delete_todo = get_object_or_404(Todo, pk=pk)
+    delete_todo.delete()
+    return redirect('/todo/')
 
 class TodoUpdate(UpdateView):
     model = Todo
